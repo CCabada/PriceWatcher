@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import javafx.scene.control.ListView?>
+<AnchorPane prefHeight="758.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PriceWatcherController">
+    <BorderPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <top>
+            <MenuBar AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                <menus>
+                    <Menu mnemonicParsing="false" text="App">
+                        <items>
+                            <MenuItem onAction="#AboutAction" text="About" />
+                            <MenuItem onAction="#ExitAction" text="Exit" />
+                        </items>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Item">
+                        <items>
+                            <MenuItem onAction="#CheckPricesAction" text="Check prices - Alt-C" />
+                            <MenuItem onAction="#AddPricesAction" text="Add item - Alt-A" />
+                            <SeparatorMenuItem />
+                            <MenuItem onAction="#SearchAction" text="Search - Alt-S" />
+                            <MenuItem text="Selected menu." />
+                        </items>
+                    </Menu>
+                    <Menu mnemonicParsing="false" text="Sort">
+                        <items>
+                            <MenuItem onAction="#OldestAction" text="Added oldest" />
+                            <MenuItem onAction="#NewestAction" text="Added newest" />
+                            <SeparatorMenuItem />
+                            <MenuItem onAction="#AscendingAction" text="Name ascending" />
+                            <MenuItem onAction="#DescendingAction" text="Name descending" />
+                            <SeparatorMenuItem />
+                            <MenuItem onAction="#PriceChangeAction" text="Price change(%)" />
+                            <MenuItem onAction="#LowAction" text="Price low($)" />
+                            <MenuItem onAction="#HighAction" text="Price high($)" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+        </top>
+        <center>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="671.0" prefWidth="826.0" BorderPane.alignment="CENTER">
+                <children>
+                    <ButtonBar buttonMinWidth="30.0" prefHeight="40.0" prefWidth="248.0" BorderPane.alignment="TOP_LEFT">
+                        <buttons>
+                            <Button fx:id="urlButton" maxHeight="32" maxWidth="32" minHeight="30" minWidth="30" mnemonicParsing="false" onAction="#UrlButtonAction" prefHeight="32.0" prefWidth="148.0">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../Icons/icons8-ok-50.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="addButton" maxHeight="32" maxWidth="32" minHeight="30" minWidth="30" mnemonicParsing="false" onAction="#AddButtonAction" prefHeight="40.0">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../Icons/icons8-plus-50.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="searchButton" maxHeight="32" maxWidth="32" minHeight="30" minWidth="30" mnemonicParsing="false" onAction="#SearchButtonAction">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../Icons/icons8-search-50.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button maxHeight="32" maxWidth="32" minHeight="30" minWidth="30" mnemonicParsing="false">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../Icons/icons8-ok-50-2.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="newItemButton" maxHeight="32" maxWidth="32" minHeight="30" minWidth="30" mnemonicParsing="false" onAction="#newItemAction">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../Icons/icons8-file-50.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="editButton" maxHeight="32" maxWidth="32" minHeight="30" minWidth="30" mnemonicParsing="false" onAction="#editAction">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../Icons/icons8-edit-50.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="cancelButton" maxHeight="32" maxWidth="32" minHeight="30" minWidth="30" mnemonicParsing="false" onAction="#cancelAction">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../Icons/stop.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic></Button>
+                            <Button fx:id="helpButton" maxHeight="32" maxWidth="32" minHeight="30" minWidth="30" mnemonicParsing="false" onAction="#helpAction">
+                                <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../Icons/icons8-help-50.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </buttons>
+                    </ButtonBar>
+                    <Pane layoutX="18.0" layoutY="64.0" visible="true">
+                        <children>
+                            <ListView fx:id="listView" layoutX="-13.0" layoutY="-12.0" prefHeight="621.0" prefWidth="596.0"/>
+
+
+                        </children>
+                        <padding>
+                            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+                        </padding>
+                    </Pane>
+                </children>
+            </Pane>
+        </center>
+    </BorderPane>
+</AnchorPane>
