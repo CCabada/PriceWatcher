@@ -35,8 +35,6 @@ public class AddItemController {
         }
 
         return listView;
-
-
     }
 
 

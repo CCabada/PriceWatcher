@@ -10,10 +10,11 @@ import java.util.Random;
 
 public class Item {
     Random rand = new Random();
-    String name = "Samsung - UE590 Series 28\" LED 4K UHD Monitor - Black";
-    double price = rand.nextInt(50)+50;
-    String url = "https://www.bestbuy.com/site/samsung-ue590-series-28-led-4k-uhd-monitor-black/5484022.p?skuId=5484022";
-    float change  = (float) PriceWatcherModel.calculateChange(price);
+    String name;
+    double price;
+    double initialPrice;
+    String url;
+    float change;
     Date date;
 
     Item(String name, double price, String URL){
@@ -22,9 +23,10 @@ public class Item {
         this.url = URL;
     }
 
-    Item(String name, double price, String URL, float change, Date date){
+    Item(String name, double price, double initialPrice, String URL, float change, Date date){
         this.name = name;
         this.price = price;
+        this.initialPrice = initialPrice;
         this.url = URL;
         this.change = change;
         this.date = date;
@@ -34,6 +36,9 @@ public class Item {
     }
     public void setPrice(double price){
         this.price = price;
+    }
+    public void setInitialPrice(double price){
+        this.initialPrice = price;
     }
     public void setUrl(String URL){
         this.url = URL;
@@ -48,12 +53,11 @@ public class Item {
         return name;
     }
     public double getPrice(){return price;}
+    public double getInitialPrice(){return initialPrice;}
     public String getUrl(){return url;}
-
     public Date getDate() {
         return date;
     }
-
     public float getChange() {
         return change;
     }
