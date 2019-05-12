@@ -30,13 +30,13 @@ public class ItemManager {
         return this.listItems;
     }
 
-    public static boolean  isEmpty(){
+    public boolean  isEmpty(){
         return getItems()== null;
     }
     
-    public static void createItem(String name, String url, String date, double price, double initialPrice, double change){
+    public void createItem(String name, String url, String date, double price, double initialPrice, double change){
         Item created = new Item(name, price, initialPrice, url, (float) change, date);
-        //addItem(created);
+        addItem(created);
     }
 
 

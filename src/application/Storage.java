@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Storage extends ItemManager{
+    ItemManager manager = new ItemManager();
 
     public JSONArray toJSON(){
         return new JSONArray(getItems());
@@ -28,7 +29,7 @@ public class Storage extends ItemManager{
         JSONArray itemListJSON = new JSONArray(tokener);
         for (int i = 0; i < itemListJSON.length(); i++) {
             JSONObject itemJSON = itemListJSON.getJSONObject(i);
-            ItemManager.createItem(itemJSON.getString("name"), itemJSON.getString("URL"), itemJSON.getString("date"), itemJSON.getDouble("currentPrice"), itemJSON.getDouble("startingPrice"), itemJSON.getDouble("change"));
+            manager.createItem(itemJSON.getString("name"), itemJSON.getString("URL"), itemJSON.getString("date"), itemJSON.getDouble("currentPrice"), itemJSON.getDouble("startingPrice"), itemJSON.getDouble("change"));
         }
 
     }

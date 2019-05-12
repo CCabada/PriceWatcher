@@ -27,7 +27,7 @@ public class PriceWatcherController {
 
     public ListView<Item> listView = new ListView<>();
     public ObservableList<Item> items;
-
+    ItemManager manager = new ItemManager();
     TextField URLField;
     /**
      * Handle action related to input (in this case specifically only responds to
@@ -120,7 +120,7 @@ public class PriceWatcherController {
 
         Desktop d1 = Desktop.getDesktop();
         try {
-            if (ItemManager.isEmpty()) {
+            if (manager.isEmpty()) {
                 if (URLField.getText() != null) {
                     d1.browse(new URI(URLField.getText()));   //TODO Only allow this if there is any items on the list.
                 } else {
