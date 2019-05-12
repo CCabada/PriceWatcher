@@ -1,5 +1,7 @@
 package application;
+
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -21,16 +23,12 @@ public class Storage extends ItemManager{
         }
     }
 
-    public void fromJSON() throws FileNotFoundException {
+    public void fromJSON() throws FileNotFoundException, JSONException {
         JSONTokener tokener = new JSONTokener(new FileInputStream(new File("src/resources/items.json")));
-        JSONArray productListJSON = new JSONArray(tokener);
-        for (int i = 0; i < productListJSON.length(); i++) {
+        JSONArray itemListJSON = new JSONArray(tokener);
+        for (int i = 0; i < itemListJSON.length(); i++) {
             JSONObject itemJSON = itemListJSON.getJSONObject(i);
-            create(itemJSON.getString("name"), itemJSON.getDate("date"), itemJSON.getDouble("currentPrice"),
-                    itemJSON.getDouble("startingPrice"),
-                    itemJSON.getString("URL"),
-                    itemJSON.getDouble("change")
-            );
+            ItemManager.createItem(itemJSON.getString("name"), itemJSON.getString("URL"), itemJSON.getString("date"), itemJSON.getDouble("currentPrice"), itemJSON.getDouble("startingPrice"), itemJSON.getDouble("change"));
         }
 
     }

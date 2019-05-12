@@ -1,9 +1,12 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+/**
+ * Item Class
+ * Attributes
+ */
 public class ItemManager {
     
     private List<Item> listItems;
@@ -26,10 +29,14 @@ public class ItemManager {
     public List<Item> getItems() {
         return this.listItems;
     }
+
+    public static boolean  isEmpty(){
+        return getItems()== null;
+    }
     
-    public void createItem(String name, String url, Date date, double price, double initialPrice, double change){
+    public static void createItem(String name, String url, String date, double price, double initialPrice, double change){
         Item created = new Item(name, price, initialPrice, url, (float) change, date);
-        addItem(created);
+        //addItem(created);
     }
 
 

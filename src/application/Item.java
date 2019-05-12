@@ -3,9 +3,6 @@ package application;
  * Programming Assignment 4: Item.java
  * Date: April 24, 2019
  * Instructor: Elsa Tai Ramirez * */
-import javax.swing.text.Document;
-import java.io.IOException;
-import java.util.Date;
 import java.util.Random;
 
 public class Item {
@@ -15,7 +12,7 @@ public class Item {
     double initialPrice;
     String url;
     float change;
-    Date date;
+    String date;
 
     Item(String name, double price, String URL){
         this.name = name;
@@ -23,7 +20,7 @@ public class Item {
         this.url = URL;
     }
 
-    Item(String name, double price, double initialPrice, String URL, float change, Date date){
+    Item(String name, double price, double initialPrice, String URL, float change, String date){
         this.name = name;
         this.price = price;
         this.initialPrice = initialPrice;
@@ -43,7 +40,7 @@ public class Item {
     public void setUrl(String URL){
         this.url = URL;
     }
-    public void setDate(Date date){
+    public void setDate(String date){
         this.date = date;
     }
     public void setChange(float change){
@@ -55,7 +52,7 @@ public class Item {
     public double getPrice(){return price;}
     public double getInitialPrice(){return initialPrice;}
     public String getUrl(){return url;}
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
     public float getChange() {

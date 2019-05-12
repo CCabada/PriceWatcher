@@ -2,23 +2,20 @@ package application;
 // Cell Factory
 // ListView
 //Observable view
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ListView;
 import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 
 import java.awt.*;
 import java.io.IOException;
@@ -28,53 +25,10 @@ import java.util.ResourceBundle;
 
 public class PriceWatcherController {
 
-
-    @FXML
-    private MenuBar menuBar;
-    @FXML
-    private Button urlButton;
-    @FXML
-    private Button searchButton;
-    @FXML
-    private Button newItemButton;
-    @FXML
-    private Button editButton;
-    @FXML
-    private Button cancelButton;
-    @FXML
-    private Button helpButton;
-
-
-
-    @FXML
-    private TextField NameField ;
-    @FXML
-    private TextField URLField;
-    @FXML
-    private TextField PriceField;
-    @FXML
-    private TextField ChangeField;
-    @FXML
-    private TextField AddedField;
-    @FXML
-    private ComboBox GroupField;
-    @FXML
-    private TextField NameField2;
-    @FXML
-    private TextField URLField2;
-    @FXML
-    private TextField PriceField2;
-    @FXML
-    private TextField ChangeField2;
-    @FXML
-    private TextField AddedField2;
-    @FXML
-    private TextField GroupField2;
-
     public ListView<Item> listView = new ListView<>();
     public ObservableList<Item> items;
 
-
+    TextField URLField;
     /**
      * Handle action related to input (in this case specifically only responds to
      * keyboard event CTRL-A).
@@ -120,7 +74,7 @@ public class PriceWatcherController {
     }
 
 
-    public void initialize(java.net.URL arg0, ResourceBundle arg1) { menuBar.setFocusTraversable(true);    }
+    public void initialize(java.net.URL arg0, ResourceBundle arg1) {   }
     /**
      * Handle action related to "About" menu item.
      *
@@ -166,23 +120,25 @@ public class PriceWatcherController {
 
         Desktop d1 = Desktop.getDesktop();
         try {
-            if(URLField.getText() != "") {
-                d1.browse(new URI(URLField.getText()));
-            }else{
-                Stage newStage = new Stage();
-                BorderPane root = new BorderPane();
-                Text no = new Text("No URL!!!!");
-                root.setCenter(no);
+            if (ItemManager.isEmpty()) {
+                if (URLField.getText() != null) {
+                    d1.browse(new URI(URLField.getText()));   //TODO Only allow this if there is any items on the list.
+                } else {
+                    Stage newStage = new Stage();
+                    BorderPane root = new BorderPane();
+                    Text no = new Text("No URL!!!!");
+                    root.setCenter(no);
 
-                Scene stageScene = new Scene(root, 300, 300);
-                newStage.setScene(stageScene);
-                newStage.show();
+                    Scene stageScene = new Scene(root, 300, 300);
+                    newStage.setScene(stageScene);
+                    newStage.show();
 
+                }
             }
-
-        } catch (IOException | URISyntaxException e2) {
+        } catch(IOException | URISyntaxException e2){
             e2.printStackTrace();
         }
+
     }
 
     public void AddButtonAction(ActionEvent actionEvent) throws IOException {
@@ -214,6 +170,10 @@ public class PriceWatcherController {
     }
 
     public void cancelAction(ActionEvent actionEvent) {
+
+        if(actionEvent != null){
+            System.exit(0);//TODO Add functionality
+        }
     }
 
     public void helpAction(ActionEvent actionEvent) {
