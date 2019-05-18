@@ -16,7 +16,7 @@ public class Storage extends ItemManager{
         return new JSONArray(getItems());
     }
 
-    public void toStorage(JSONArray array){
+    public static void toStorage(JSONArray array){
         try(FileWriter file = new FileWriter(new File("src/resources/items.json"))){
             file.write(array.toString());
         }catch (IOException ex){

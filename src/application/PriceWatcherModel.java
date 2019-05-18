@@ -24,13 +24,12 @@ public class PriceWatcherModel extends ScrapePrice{
      * @return price
      */
     public double getPrice(String url){
-        return (double) ScrapePrice.priceScraper(url);
+        return ScrapePrice.priceScraper(url);
     }
 
     public static Item addItem(String name, double price, String url){
         Date date = new Date();
         items[0] = new Item(name, price, url);
-//        PriceWatcherController.DisplayItem(items[0], calculateChange(price), date);
         System.out.println("Item :" + name  + " Has been added");
         return items[0];
     }

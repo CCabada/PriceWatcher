@@ -4,6 +4,7 @@ package application;
 //Observable view
 
 import javafx.collections.ObservableList;
+import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,11 +25,13 @@ import java.net.URISyntaxException;
 import java.util.ResourceBundle;
 
 public class PriceWatcherController {
-
-    public ListView<Item> listView = new ListView<>();
-    public ObservableList<Item> items;
+    @FXML
+    static ListView listView = new ListView();
+    ObservableList list;
     ItemManager manager = new ItemManager();
     TextField URLField;
+    private JFXPanel CancelButton;
+
     /**
      * Handle action related to input (in this case specifically only responds to
      * keyboard event CTRL-A).
@@ -36,7 +39,7 @@ public class PriceWatcherController {
      * @param event Input event.
      */
     @FXML
-    private void handleKeyInput(final InputEvent event)
+    private void handleKeyInput(final InputEvent event) throws IOException
     {
         if (event instanceof KeyEvent)
         {
@@ -51,7 +54,16 @@ public class PriceWatcherController {
         }
     }
 
-    private void provideSearchFunctionality() {
+    private void provideSearchFunctionality() throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("'SearchView.fxml"));
+        Stage itemStage = new Stage();
+        itemStage.setTitle("Search Item");
+        itemStage.setScene(new Scene(root, 630, 730));
+        itemStage.sizeToScene();
+        itemStage.show();
+
+
     }
 
     /**
@@ -74,7 +86,9 @@ public class PriceWatcherController {
     }
 
 
-    public void initialize(java.net.URL arg0, ResourceBundle arg1) {   }
+    public void initialize(java.net.URL arg0, ResourceBundle arg1) {
+        listView.setItems(list);
+    }
     /**
      * Handle action related to "About" menu item.
      *
@@ -82,14 +96,28 @@ public class PriceWatcherController {
      */
     @FXML
     private void AboutAction(ActionEvent event){ provideAboutFunctionality();}
+
+    /**
+     * Handles Exit action event. Closes the application.
+     * @param actionEvent
+     */
     public void ExitAction(ActionEvent actionEvent) {System.exit(0);}
 
+    /**
+     * Refreshes application, it checks the price for every item in the list.
+     * @param actionEvent
+     */
     public void CheckPricesAction(ActionEvent actionEvent) {provideCheckPricesFunctionality();}
+
+    /**
+     *
+     * @param actionEvent
+     */
 
     public void AddPricesAction(ActionEvent actionEvent) {System.out.println("You clicked on Add Price!");
     }
 
-    public void SearchAction(ActionEvent actionEvent) { provideSearchFunctionality();}
+    public void SearchAction(ActionEvent actionEvent) throws IOException{ provideSearchFunctionality();}
 
     public void OldestAction(ActionEvent actionEvent) {System.out.println("You clicked o5");
     }
@@ -140,12 +168,17 @@ public class PriceWatcherController {
         }
 
     }
+    public static void displayItems(ListView list){
+        listView = list;
+
+    }
 
     public void AddButtonAction(ActionEvent actionEvent) throws IOException {
         newItemAction(actionEvent);
+
     }
 
-    public void SearchButtonAction(ActionEvent actionEvent) {
+    public void SearchButtonAction(ActionEvent actionEvent) throws IOException {
         SearchAction(actionEvent);
     }
 
@@ -156,7 +189,6 @@ public class PriceWatcherController {
         itemStage.setScene(new Scene(root, 630, 730));
         itemStage.sizeToScene();
         itemStage.show();
-
 
     }
 
@@ -169,31 +201,15 @@ public class PriceWatcherController {
         itemStage.show();
     }
 
-    public void cancelAction(ActionEvent actionEvent) {
-
-        if(actionEvent != null){
-            System.exit(0);//TODO Add functionality
-        }
-    }
 
     public void helpAction(ActionEvent actionEvent) {
     }
 
-//    public void SaveItemAction(ActionEvent actionEvent) {
-//
-//        if(NameField.getText() != null && PriceField.getText() != null && URLField.getText() != null){
-//            Item item = PriceWatcherModel.addItem(NameField.getText(), Double.parseDouble(PriceField.getText()), URLField.getText());
-//            listView.getItems().add(item);
-//            items = listView.getSelectionModel().getSelectedItems();
-//
-//        }
-//
-//        //if(actionEvent)
-//
-//    }
+    public void cancelAction(ActionEvent actionEvent) {
+        // get a handle to the stage
+        Stage stage = (Stage) CancelButton.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
 
-//    public static void DisplayItem(Item item, float change, Date date){
-//        NameField
-
-//    }
 }

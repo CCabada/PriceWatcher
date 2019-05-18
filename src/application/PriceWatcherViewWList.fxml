@@ -3,24 +3,17 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 
-<?import javafx.scene.control.ListView?>
 <AnchorPane prefHeight="758.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PriceWatcherController">
     <BorderPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <top>
@@ -34,11 +27,11 @@
                     </Menu>
                     <Menu mnemonicParsing="false" text="Item">
                         <items>
-                            <MenuItem onAction="#CheckPricesAction" text="Check prices - Alt-C" />
-                            <MenuItem onAction="#AddPricesAction" text="Add item - Alt-A" />
+                            <MenuItem fx:id="CheckPrices" onAction="#CheckPricesAction" text="Check prices - Alt-C" />
+                            <MenuItem fx:id="AddPrices" onAction="#AddPricesAction" text="Add item - Alt-A" />
                             <SeparatorMenuItem />
                             <MenuItem onAction="#SearchAction" text="Search - Alt-S" />
-                            <MenuItem text="Selected menu." />
+                            <Menu text="Selected menu." visible="true" />
                         </items>
                     </Menu>
                     <Menu mnemonicParsing="false" text="Sort">
@@ -137,7 +130,7 @@
                     </ButtonBar>
                     <Pane layoutX="18.0" layoutY="64.0" visible="true">
                         <children>
-                            <ListView fx:id="listView" layoutX="-13.0" layoutY="-12.0" prefHeight="621.0" prefWidth="596.0"/>
+                            <ListView id="listView" fx:id="listView" layoutX="-13.0" layoutY="-12.0" prefHeight="621.0" prefWidth="596.0" />
 
 
                         </children>

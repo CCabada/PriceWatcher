@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class PriceWatcherApp extends Application {
 
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("PriceWatcherViewWList.fxml"));

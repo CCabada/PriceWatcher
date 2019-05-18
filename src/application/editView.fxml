@@ -29,8 +29,8 @@
                 <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
             </padding>
             <children>
-                <Button mnemonicParsing="false" onAction="#SaveButtonAction" GridPane.rowIndex="6" GridPane.columnIndex="0" text="Save"/>
-                <Button fx:id="CancelButton" onAction="#CancelButtonAction" mnemonicParsing="false" GridPane.rowIndex="6" GridPane.columnIndex="1" text="Cancel"/>
+                <Button fx:id="SaveButton" mnemonicParsing="false" onAction="#SaveButtonAction" text="Save" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#CancelAction" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
                 <Label text="Name:" GridPane.rowIndex="2" />
                 <Label text="URL: " GridPane.rowIndex="3" />
