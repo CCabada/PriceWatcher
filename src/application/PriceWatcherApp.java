@@ -9,7 +9,11 @@ import javafx.stage.Stage;
 public class PriceWatcherApp extends Application {
 
 
-
+    /**
+     * Starts the application by loading the PriceWatcherViewWList.fxml
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("PriceWatcherViewWList.fxml"));
@@ -20,7 +24,7 @@ public class PriceWatcherApp extends Application {
     }
 
     /**
-     *
+     *Main method.
       * @param args
      */
     public static void main(String[] args) {

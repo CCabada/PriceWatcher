@@ -16,6 +16,10 @@ public class Storage extends ItemManager{
         return new JSONArray(getItems());
     }
 
+    /**
+     * Creates and writes into Json file.
+     * @param array
+     */
     public static void toStorage(JSONArray array){
         try(FileWriter file = new FileWriter(new File("src/resources/items.json"))){
             file.write(array.toString());
@@ -24,6 +28,11 @@ public class Storage extends ItemManager{
         }
     }
 
+    /**
+     * Reads from JSON file.
+     * @throws FileNotFoundException
+     * @throws JSONException
+     */
     public void fromJSON() throws FileNotFoundException, JSONException {
         JSONTokener tokener = new JSONTokener(new FileInputStream(new File("src/resources/items.json")));
         JSONArray itemListJSON = new JSONArray(tokener);

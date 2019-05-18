@@ -73,13 +73,13 @@ public class Item {
     public String getName(){
         return name;
     }
-    public double getPrice(){return price;}
+    public double getCurrentPrice(){return price;}
     public double getInitialPrice(){return initialPrice;}
-    public String getUrl(){return url;}
+    public String getURL(){return url;}
     public String getDate() {
         return date;
     }
-    public float getChange() {
+    public double getChange() {
         return change;
     }
 }

@@ -144,6 +144,8 @@ public class PriceWatcherController {
      * @param actionEvent
      */
     public void OldestAction(ActionEvent actionEvent) {
+        PriceWatcherModel.Sorting.sortOld();
+
 
     }
 
@@ -152,6 +154,8 @@ public class PriceWatcherController {
      * @param actionEvent
      */
     public void NewestAction(ActionEvent actionEvent) {
+        PriceWatcherModel.Sorting.sortNew();
+
     }
 
     /**
@@ -159,6 +163,8 @@ public class PriceWatcherController {
      * @param actionEvent
      */
     public void LowAction(ActionEvent actionEvent) {
+        PriceWatcherModel.Sorting.sortLow();
+
     }
 
     /**
@@ -166,6 +172,8 @@ public class PriceWatcherController {
      * @param actionEvent
      */
     public void PriceChangeAction(ActionEvent actionEvent) {
+        PriceWatcherModel.Sorting.sortChangeHigh();
+
     }
 
     /**
@@ -173,20 +181,24 @@ public class PriceWatcherController {
      * @param actionEvent
      */
     public void DescendingAction(ActionEvent actionEvent) {
-    }
+        PriceWatcherModel.Sorting.sortNameDescending();
 
+    }
     /**
      * Calls the method that provides the sorting functionality. Name > ascending to descending.
      * @param actionEvent
      */
-    public void AscendingAction(ActionEvent actionEvent) {
-    }
 
+    public void AscendingAction(ActionEvent actionEvent) {
+        PriceWatcherModel.Sorting.sortNameAscending();
+    }
     /**
      * Calls the method that provides the sorting functionality. Highest price to lowest.
      * @param actionEvent
      */
     public void HighAction(ActionEvent actionEvent) {
+        PriceWatcherModel.Sorting.sortHigh();
+
     }
 
     /**
@@ -293,5 +305,6 @@ public class PriceWatcherController {
         // do what you have to do
         stage.close();
     }
+
 
 }

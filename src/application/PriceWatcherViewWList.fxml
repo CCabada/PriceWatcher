@@ -39,7 +39,7 @@
                             <MenuItem onAction="#OldestAction" text="Added oldest" />
                             <MenuItem onAction="#NewestAction" text="Added newest" />
                             <SeparatorMenuItem />
-                            <MenuItem onAction="#AscendingAction" text="Name ascending" />
+                            <MenuItem fx:id="AscendingAction" onAction="#AscendingAction" text="Name ascending" />
                             <MenuItem onAction="#DescendingAction" text="Name descending" />
                             <SeparatorMenuItem />
                             <MenuItem onAction="#PriceChangeAction" text="Price change(%)" />

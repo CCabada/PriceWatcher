@@ -48,10 +48,28 @@ public class ItemManager {
         return this.listItems;
     }
 
+    /**
+     * Checks if the array is empty
+     * @return
+     */
+    public void set(List<Item> arrOfProducts) {
+        this.listItems = arrOfProducts;
+    }
+
+
     public boolean  isEmpty(){
         return getItems()== null;
     }
-    
+
+    /**
+     * Creates item with the give paramaters.
+     * @param name
+     * @param url
+     * @param date
+     * @param price
+     * @param initialPrice
+     * @param change
+     */
     public void createItem(String name, String url, String date, double price, double initialPrice, double change){
         Item created = new Item(name, price, initialPrice, url, (float) change, date);
         addItem(created);
