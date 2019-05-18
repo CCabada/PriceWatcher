@@ -10,22 +10,40 @@ import java.util.List;
 public class ItemManager {
     
     private List<Item> listItems;
+
+    /**
+     * Constructor for the Item Manager
+      */
     
     public ItemManager(){
         this.listItems = new ArrayList<>();
     }
-    
+
+    /**
+     * Adds item to the ArrayList
+     * @param item
+     */
     public void addItem(Item item){
         this.getItems().add(item);
     }
+
+    /**
+     * Deletes item from ArrayList
+     * @param item
+     */
     public void deleteItem(int item){
         this.getItems().remove(item);
     }
-    
+
+    /**
+     * Removes all the items from the ArrayList.
+     */
     public void removeItem(){
         this.listItems = new ArrayList<>();
     }
-
+    /**
+     * Gets the items from the
+     */
     public List<Item> getItems() {
         return this.listItems;
     }

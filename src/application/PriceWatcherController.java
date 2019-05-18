@@ -24,6 +24,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ResourceBundle;
 
+/**
+ * This Controller is the main controller for PriceWatcherWList.fxml
+ */
 public class PriceWatcherController {
     @FXML
     static ListView listView = new ListView();
@@ -54,6 +57,10 @@ public class PriceWatcherController {
         }
     }
 
+    /**
+     * Opens up the search window.
+     * @throws IOException
+     */
     private void provideSearchFunctionality() throws IOException {
 
         Parent root = FXMLLoader.load(getClass().getResource("'SearchView.fxml"));
@@ -81,11 +88,19 @@ public class PriceWatcherController {
         newStage.show();
 
     }
+
+    /**
+     * Should check the prices.
+     */
     private void provideCheckPricesFunctionality(){
 
     }
 
-
+    /**
+     * It initializes the whole controller.
+     * @param arg0
+     * @param arg1
+     */
     public void initialize(java.net.URL arg0, ResourceBundle arg1) {
         listView.setItems(list);
     }
@@ -117,31 +132,65 @@ public class PriceWatcherController {
     public void AddPricesAction(ActionEvent actionEvent) {System.out.println("You clicked on Add Price!");
     }
 
+    /**
+     * Calls the method that provides Search functionality.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void SearchAction(ActionEvent actionEvent) throws IOException{ provideSearchFunctionality();}
 
-    public void OldestAction(ActionEvent actionEvent) {System.out.println("You clicked o5");
+    /**
+     * Calls the method that provides the sorting functionality. Oldest to newest.
+     * @param actionEvent
+     */
+    public void OldestAction(ActionEvent actionEvent) {
+
     }
 
+    /**
+     * Calls the method that provides the sorting functionality. Newest to Oldest.
+     * @param actionEvent
+     */
     public void NewestAction(ActionEvent actionEvent) {
     }
 
+    /**
+     * Calls the method that provides the sorting functionality. Lowest price to Highest
+     * @param actionEvent
+     */
     public void LowAction(ActionEvent actionEvent) {
     }
 
+    /**
+     * Calls the method that provides if the item's price change.
+     * @param actionEvent
+     */
     public void PriceChangeAction(ActionEvent actionEvent) {
     }
 
+    /**
+     * Calls the method that provides the sorting functionality. Name > Descending to ascending.
+     * @param actionEvent
+     */
     public void DescendingAction(ActionEvent actionEvent) {
     }
 
+    /**
+     * Calls the method that provides the sorting functionality. Name > ascending to descending.
+     * @param actionEvent
+     */
     public void AscendingAction(ActionEvent actionEvent) {
     }
 
+    /**
+     * Calls the method that provides the sorting functionality. Highest price to lowest.
+     * @param actionEvent
+     */
     public void HighAction(ActionEvent actionEvent) {
     }
 
     /**
-     *
+     *If the URL button is clicked, and there is a item selected, the application should open up a browser window with the items url.
      * @param actionEvent
      */
     public void UrlButtonAction(ActionEvent actionEvent) {
@@ -168,20 +217,41 @@ public class PriceWatcherController {
         }
 
     }
+
+    /**
+     * Item render
+     * @param list
+     */
     public static void displayItems(ListView list){
         listView = list;
 
     }
+
+    /**
+     * Calls a method that provides functionality to add a item to the array.
+     * @param actionEvent
+     * @throws IOException
+     */
 
     public void AddButtonAction(ActionEvent actionEvent) throws IOException {
         newItemAction(actionEvent);
 
     }
 
+    /**
+     * Calls a method that provides functionality to the search button.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void SearchButtonAction(ActionEvent actionEvent) throws IOException {
         SearchAction(actionEvent);
     }
 
+    /**
+     * Opens up a new window with the required elements to add a new item.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void newItemAction(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("AddItemView.fxml"));
         Stage itemStage = new Stage();
@@ -192,6 +262,11 @@ public class PriceWatcherController {
 
     }
 
+    /**
+     * Opens up a new window with the required elements to edit an item.
+     * @param actionEvent
+     * @throws IOException
+     */
     public void editAction(ActionEvent actionEvent) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("editView.fxml"));
         Stage itemStage = new Stage();
@@ -201,10 +276,17 @@ public class PriceWatcherController {
         itemStage.show();
     }
 
-
+    /**
+     * Provides functionality to the Help Button.
+     * @param actionEvent
+     */
     public void helpAction(ActionEvent actionEvent) {
     }
 
+    /**
+     * Provides functionality to the cancel button.
+     * @param actionEvent
+     */
     public void cancelAction(ActionEvent actionEvent) {
         // get a handle to the stage
         Stage stage = (Stage) CancelButton.getScene().getWindow();

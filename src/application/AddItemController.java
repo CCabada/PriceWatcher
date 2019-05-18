@@ -28,7 +28,10 @@ public class AddItemController {
     Button CancelButton;
     Alert a = new Alert(Alert.AlertType.NONE);
 
-
+    /**
+     * Provides functionality to the Add button. Adds the item's info to create an ITEM object.
+     * @param actionEvent
+     */
     public void AddItemAction(ActionEvent actionEvent) {
 
         if(NameField.getText() != null && PriceField.getText() != null && URLField.getText() != null) {
@@ -61,6 +64,10 @@ public class AddItemController {
 
     }
 
+    /**
+     * Closes the window.
+     * @param actionEvent
+     */
 
     public void CancelItemAction(ActionEvent actionEvent) {
         // get a handle to the stage

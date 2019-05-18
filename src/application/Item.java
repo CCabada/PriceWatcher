@@ -14,12 +14,27 @@ public class Item {
     float change;
     String date;
 
+    /**
+     * Constructor for item object.
+     * @param name
+     * @param price
+     * @param URL
+     */
     Item(String name, double price, String URL){
         this.name = name;
         this.price = price;
         this.url = URL;
     }
 
+    /**
+     * Another constructor.
+     * @param name
+     * @param price
+     * @param initialPrice
+     * @param URL
+     * @param change
+     * @param date
+     */
     Item(String name, double price, double initialPrice, String URL, float change, String date){
         this.name = name;
         this.price = price;
@@ -28,6 +43,15 @@ public class Item {
         this.change = change;
         this.date = date;
     }
+
+
+
+
+    /**
+     * Setters and getters for item
+     */
+
+
     public void setName(String name){
         this.name = name;
     }
